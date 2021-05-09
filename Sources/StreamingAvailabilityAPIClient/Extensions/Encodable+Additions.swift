@@ -7,7 +7,11 @@
 
 import Foundation
 
-protocol RequestParameter: Encodable {}
+protocol RequestParameter: Encodable {
+
+    func toDictionary() -> [String: Any]
+
+}
 
 extension RequestParameter {
     func toDictionary() -> [String: Any] {

@@ -29,7 +29,26 @@ final class StreamingAvailabilityAPIClientTests: XCTestCase {
         }
     }
 
-    func testOptionalParametersAreNotIncludedWhenNil() {
+    func testProSearch() throws {
+        try JSONStubManager.setupStub(.proSearch)
+
+        let parameters = ProSearch.Parameters(country: "en",
+                                              service: .disney,
+                                              type: .movie,
+                                              orderBy: .originalTitle,
+                                              yearMin: nil,
+                                              yearMax: nil,
+                                              genre: nil,
+                                              page: nil,
+                                              desc: nil,
+                                              language: nil,
+                                              keyword: nil)
+        assert(publisher: sut.proSearch(parameters)) { response in
+            XCTAssertEqual(response.results.count, 10)
+        }
+    }
+
+    func testOptionalParametersAreNotIncludedWhenNilForBasicSearch() {
         let params = BasicSearch.Parameters(country: "en",
                                             service: .disney,
                                             type: .movie,
@@ -37,9 +56,30 @@ final class StreamingAvailabilityAPIClientTests: XCTestCase {
                                             page: nil,
                                             language: nil)
         let payload = params.toDictionary()
-        XCTAssertNil(payload["genre"])
-        XCTAssertNil(payload["page"])
-        XCTAssertNil(payload["language"])
+        XCTAssertEqual(payload.keys.count, 3)
+        XCTAssertNotNil(payload["country"])
+        XCTAssertNotNil(payload["service"])
+        XCTAssertNotNil(payload["type"])
+    }
+
+    func testOptionalParametersAreNotIncludedWhenNilForProSearch() {
+        let parameters = ProSearch.Parameters(country: "en",
+                                              service: .disney,
+                                              type: .movie,
+                                              orderBy: .originalTitle,
+                                              yearMin: nil,
+                                              yearMax: nil,
+                                              genre: nil,
+                                              page: nil,
+                                              desc: nil,
+                                              language: nil,
+                                              keyword: nil)
+        let payload = parameters.toDictionary()
+        XCTAssertEqual(payload.keys.count, 4)
+        XCTAssertNotNil(payload["country"])
+        XCTAssertNotNil(payload["service"])
+        XCTAssertNotNil(payload["type"])
+        XCTAssertNotNil(payload["order_by"])
     }
 }
 

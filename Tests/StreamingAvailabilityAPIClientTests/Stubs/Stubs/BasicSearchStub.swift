@@ -8,6 +8,6 @@
 import Foundation
 
 public struct BasicSearchStub: JSONStub {
-    var request = JSONStubRequest(path: "", queryParams: [:])
+    var request = JSONStubRequest(path: "/search/basic", queryParams: [:])
     var response = JSONStubResponse(fileName: "basic_search.json")
 }

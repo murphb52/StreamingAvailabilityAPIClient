@@ -7,5 +7,6 @@
 
 import Foundation
 
-public typealias StreamingServiceInformation = CodableDictionary<StreamingService,
-                                                                 [CountryCode: StreamingInfo]>
+public typealias StreamingServiceInformation = CodableDictionary<
+    StreamingService, [CountryCode: StreamingInfo]
+>

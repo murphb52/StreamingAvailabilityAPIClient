@@ -35,4 +35,12 @@ public class StreamingAvailabilityAPIClient: StreamingAvailabilityAPI {
                                 queryItems: parameters.toQueryItems(),
                                 headers: headers))
     }
+
+    public func proSearch(
+        _ parameters: ProSearch.Parameters
+    ) -> AnyPublisher<ProSearch.Response, Error> {
+        .publisher(for: .create(path: EndpointPaths.proSearch.path,
+                                queryItems: parameters.toQueryItems(),
+                                headers: headers))
+    }
 }

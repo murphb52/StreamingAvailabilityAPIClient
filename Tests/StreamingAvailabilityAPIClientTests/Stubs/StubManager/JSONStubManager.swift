@@ -13,6 +13,7 @@ public class JSONStubManager {
 
     public enum StubType {
         case basicSearch
+        case proSearch
     }
 
     public static func setupStub(_ stubType: StubType) throws {
@@ -38,6 +39,7 @@ private extension JSONStubManager {
     static func details(for stubType: StubType) -> JSONStub {
         switch stubType {
         case .basicSearch: return BasicSearchStub()
+        case .proSearch: return ProSearchStub()
         }
     }
 
