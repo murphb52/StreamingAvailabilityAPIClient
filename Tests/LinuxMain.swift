@@ -2,6 +2,4 @@ import XCTest
 
 import StreamingAvailabilityAPIClientTests
 
-var tests = [XCTestCaseEntry]()
-tests += StreamingAvailabilityAPIClientTests.allTests()
-XCTMain(tests)
+fatalError("Running tests like this is unsupported. Run the tests again by using `swift test --enable-test-discovery`")

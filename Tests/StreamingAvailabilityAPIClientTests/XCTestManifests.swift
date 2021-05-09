@@ -1,9 +1,9 @@
 import XCTest
 
-#if !canImport(ObjectiveC)
-public func allTests() -> [XCTestCaseEntry] {
-    return [
-        testCase(StreamingAvailabilityAPIClientTests.allTests),
-    ]
-}
-#endif
+//#if !canImport(ObjectiveC)
+//public func allTests() -> [XCTestCaseEntry] {
+//    return [
+//        testCase(StreamingAvailabilityAPIClientTests.allTests),
+//    ]
+//}
+//#endif
