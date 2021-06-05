@@ -16,5 +16,5 @@ public enum StreamingService: String, Codable, CodingKey {
     case peacock
     case paramount
     case starz
-    case showtime
+    case seriestime
 }

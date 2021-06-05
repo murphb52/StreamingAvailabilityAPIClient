@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EndpointPaths: String {
+enum EndpointPath: String {
     case basicSearch = "/search/basic"
     case proSearch = "/search/pro"
 

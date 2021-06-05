@@ -12,7 +12,8 @@ import OHHTTPStubs
 public class JSONStubManager {
 
     public enum StubType {
-        case basicSearch
+        case basicMovieSearch
+        case basicTVSeriesSearch
         case proSearch
     }
 
@@ -38,7 +39,8 @@ private extension JSONStubManager {
 
     static func details(for stubType: StubType) -> JSONStub {
         switch stubType {
-        case .basicSearch: return BasicSearchStub()
+        case .basicMovieSearch: return BasicMovieSearchStub()
+        case .basicTVSeriesSearch: return BasicTVSeriesSearchStub()
         case .proSearch: return ProSearchStub()
         }
     }

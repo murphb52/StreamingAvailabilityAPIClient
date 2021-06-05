@@ -1,21 +1,17 @@
 //
-//  File.swift
+//  BasicSearch.swift
 //  
 //
-//  Created by Brian Murphy on 11/04/2021.
+//  Created by Brian Murphy on 04/06/2021.
 //
 
 import Foundation
 
-public enum BasicSearch {
-    public struct Parameters: Codable, RequestParameter {
-        public let country: CountryCode
-        public let service: StreamingService
-        public let type: ContentType
-        public let genre: GenreIdentifier?
-        public let page: Int?
-        public let language: String?
-    }
-
-    public typealias Response = APIResponse<Title>
+protocol BasicSearch {
+    var type: ContentType { get }
+    var country: CountryCode { get }
+    var service: StreamingService { get }
+    var genre: GenreIdentifier? { get }
+    var page: Int? { get }
+    var language: String? { get }
 }

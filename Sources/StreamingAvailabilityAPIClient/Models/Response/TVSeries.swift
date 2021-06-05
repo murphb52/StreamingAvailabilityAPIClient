@@ -1,14 +1,14 @@
 //
-//  Title.swift
+//  TVSeries.swift
 //  
 //
-//  Created by Brian Murphy on 09/05/2021.
+//  Created by Brian Murphy on 20/05/2021.
 //
 
 import Foundation
 
-public struct Title: Codable {
-    /// Advised minimum age for a show. -1 Means unknown. Otherwise between 0 and 18
+public struct TVSeries: Title {
+    /// Advised minimum age for a series. -1 Means unknown. Otherwise between 0 and 18
     public let age: Int
 
     /// TMDb image path. See https://developers.themoviedb.org/3/getting-started/images
@@ -26,12 +26,6 @@ public struct Title: Codable {
     /// Array of genre identifiers for the title
     public let genres: [GenreIdentifier]
 
-    public let imdbID: String
-    public let imdbRating: Int
-    public let imdbVoteCount: Int
-    public let originalTitle: String
-    public let overview: String
-
     /// TMDb image path. See https://developers.themoviedb.org/3/getting-started/images
     public let posterPath: String
 
@@ -40,28 +34,27 @@ public struct Title: Codable {
 
     /// Directors for the movies, creators for the series
     public let significants: [String]
+
+    ///First air year of a series
+    public let firstAirYear: Int
+
+    ///Last air year of a series
+    public let lastAirYear: Int
+
+    ///Status of a series. 1: Returning Series. 2: Planned. 3: In Production. 4: Ended. 5: Cancelled. 6: Pilot. 0: Unknown.
+    public let status: TVSeriesStatus
+
+    public let imdbID: String
+    public let imdbRating: Int
+    public let imdbVoteCount: Int
+    public let originalTitle: String
+    public let overview: String
     public let streamingInfo: StreamingServiceInformation
     public let tagline: String
     public let title: String
     public let tmdbID: String
     public let video: String
     public let year: Int
-
-    //** Movie **
-    /// Runtime in minutes
-    public let runtime: Int?
-
-    //** TV Series **
-
-    ///First air year of a series
-    public let firstAirYear: Int?
-
-    ///Last air year of a series
-    public let lastAirYear: Int?
-    public let episodeRuntimes: [Int]?
-    public let seasons: Int?
-
-    ///Status of a series. 1: Returning Series. 2: Planned. 3: In Production. 4: Ended. 5: Cancelled. 6: Pilot. 0: Unknown.
-    public let status: TVSeriesStatus?
-
+    public let episodeRuntimes: [Int]
+    public let seasons: Int
 }

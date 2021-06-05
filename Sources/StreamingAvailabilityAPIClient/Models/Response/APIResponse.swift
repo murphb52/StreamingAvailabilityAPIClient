@@ -8,8 +8,8 @@
 import Foundation
 
 public struct APIResponse<T: Codable>: Codable {
-    let results: [T]
-    let totalPages: Int
+    public let results: T
+    public let totalPages: Int
 
     enum CodingKeys: String, CodingKey {
         case results
@@ -19,7 +19,7 @@ public struct APIResponse<T: Codable>: Codable {
 
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        results = try values.decode([T].self, forKey: .results)
+        results = try values.decode(T.self, forKey: .results)
         totalPages = try Self.decodeTotalPages(from: values)
     }
 

@@ -8,13 +8,13 @@
 import Foundation
 
 extension URLRequest {
-    static func create(path: String,
+    static func create(path: EndpointPath,
                        queryItems: QueryItems,
                        headers: [String: String]) -> URLRequest {
         var urlComponenets = URLComponents()
         urlComponenets.scheme = "https"
         urlComponenets.host = "streaming-availability.p.rapidapi.com"
-        urlComponenets.path = path
+        urlComponenets.path = path.rawValue
         urlComponenets.queryItems = queryItems.map(URLQueryItem.init)
 
         let request = NSMutableURLRequest(url: urlComponenets.url!,
