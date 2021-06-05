@@ -36,6 +36,30 @@ final class StreamingAvailabilityAPIClientTests: XCTestCase {
         }
     }
 
+    func testProMovieSearch() throws {
+        try JSONStubManager.setupStub(.proMovieSearch)
+
+        let parameters = ProMovieSearchParameters(country: "en",
+                                                  service: .disney,
+                                                  orderBy: .year)
+        let publisher = sut.proMovieSearchRequest(parameters)
+        assert(publisher: publisher) { response in
+            XCTAssertEqual(response.results.count, 8)
+        }
+    }
+
+    func testProTVSeriesSearch() throws {
+        try JSONStubManager.setupStub(.proTVSeriesSearch)
+
+        let parameters = ProTVSeriesSearchParameters(country: "en",
+                                                     service: .disney,
+                                                     orderBy: .year)
+        let publisher = sut.proTVSeriesSearchRequest(parameters)
+        assert(publisher: publisher) { response in
+            XCTAssertEqual(response.results.count, 8)
+        }
+    }
+
 //    func testProSearch() throws {
 //        try JSONStubManager.setupStub(.proSearch)
 //

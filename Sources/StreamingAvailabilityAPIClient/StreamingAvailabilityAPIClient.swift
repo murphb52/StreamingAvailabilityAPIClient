@@ -44,21 +44,19 @@ public class StreamingAvailabilityAPIClient: StreamingAvailabilityAPI {
                                 headers: headers))
     }
 
-//    public func proSearch(
-//        _ parameters: ProSearch.Parameters
-//    ) -> AnyPublisher<ProSearch.Response, Error> {
-//        .publisher(for: .create(path: EndpointPaths.proSearch.path,
-//                                queryItems: parameters.toQueryItems(),
-//                                headers: headers))
-//    }
-//
-//    public func basicMovieSearch(_ request: BasicMovieSearchRequest) -> AnyPublisher<APIResponse<Movie>, Error> {
-//        execute(request)
-//    }
-//
-//    func execute<T: Request>(_ request: T) -> AnyPublisher<APIResponse<T.Response>, Error> {
-//        .publisher(for: .create(path: request.path,
-//                                queryItems: request.queryItems,
-//                                headers: headers))
-//    }
+    public func proMovieSearchRequest(
+        _ parameters: ProMovieSearchParameters
+    ) -> AnyPublisher<APIResponse<[Movie]>, Error> {
+        .publisher(for: .create(path: .proSearch,
+                                queryItems: parameters.toQueryItems(),
+                                headers: headers))
+    }
+
+    public func proTVSeriesSearchRequest(
+        _ parameters: ProTVSeriesSearchParameters
+    ) -> AnyPublisher<APIResponse<[TVSeries]>, Error> {
+        .publisher(for: .create(path: .proSearch,
+                                queryItems: parameters.toQueryItems(),
+                                headers: headers))
+    }
 }

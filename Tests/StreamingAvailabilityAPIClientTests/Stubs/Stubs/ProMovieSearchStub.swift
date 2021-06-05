@@ -1,5 +1,5 @@
 //
-//  ProSearchStub.swift
+//  ProMovieSearchStub.swift
 //  
 //
 //  Created by Brian Murphy on 09/05/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ProSearchStub: JSONStub {
+public struct ProMovieSearchStub: JSONStub {
     var request = JSONStubRequest(path: "search/pro", queryParams: [:])
-    var response = JSONStubResponse(fileName: "pro_search.json")
+    var response = JSONStubResponse(fileName: "basic_movie_search.json")
 }

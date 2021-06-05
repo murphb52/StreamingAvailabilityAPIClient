@@ -14,7 +14,8 @@ public class JSONStubManager {
     public enum StubType {
         case basicMovieSearch
         case basicTVSeriesSearch
-        case proSearch
+        case proMovieSearch
+        case proTVSeriesSearch
     }
 
     public static func setupStub(_ stubType: StubType) throws {
@@ -41,7 +42,8 @@ private extension JSONStubManager {
         switch stubType {
         case .basicMovieSearch: return BasicMovieSearchStub()
         case .basicTVSeriesSearch: return BasicTVSeriesSearchStub()
-        case .proSearch: return ProSearchStub()
+        case .proMovieSearch: return ProMovieSearchStub()
+        case .proTVSeriesSearch: return ProTVSeriesSearchStub()
         }
     }
 
