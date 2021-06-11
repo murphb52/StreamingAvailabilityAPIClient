@@ -21,7 +21,7 @@ public struct ProTVSeriesSearchParameters: ProSearch {
     public let desc: Bool?
     public let keyword: String?
 
-    internal init(country: CountryCode,
+    public init(country: CountryCode,
                   service: StreamingService,
                   orderBy: SearchOrder,
                   genre: GenreIdentifier? = nil,
