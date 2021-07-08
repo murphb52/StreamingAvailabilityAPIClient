@@ -31,10 +31,10 @@ protocol UltraSearch: RequestParameter {
     var genresRelation: GenreRelation? { get }
     var desc: Bool? { get }
     var language: String? { get }
-    var minImdbRating: Bool? { get }
-    var maxImdbRating: Bool? { get }
-    var minImdbVoteCount: Bool? { get }
-    var maxImdbVoteCount: Bool? { get }
+    var minImdbRating: Int? { get }
+    var maxImdbRating: Int? { get }
+    var minImdbVoteCount: Int? { get }
+    var maxImdbVoteCount: Int? { get }
     var keyword: String? { get }
 }
 

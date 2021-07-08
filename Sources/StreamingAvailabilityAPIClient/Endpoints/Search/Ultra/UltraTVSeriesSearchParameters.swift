@@ -20,10 +20,10 @@ public struct UltraTVSeriesSearchParameters: UltraSearch {
     public let genresRelation: GenreRelation?
     public let desc: Bool?
     public let language: String?
-    public let minImdbRating: Bool?
-    public let maxImdbRating: Bool?
-    public let minImdbVoteCount: Bool?
-    public let maxImdbVoteCount: Bool?
+    public let minImdbRating: Int?
+    public let maxImdbRating: Int?
+    public let minImdbVoteCount: Int?
+    public let maxImdbVoteCount: Int?
     public let keyword: String?
 
     public init(country: CountryCode,
@@ -36,10 +36,10 @@ public struct UltraTVSeriesSearchParameters: UltraSearch {
                 genresRelation: GenreRelation? = nil,
                 desc: Bool? = nil,
                 language: String? = nil,
-                minImdbRating: Bool? = nil,
-                maxImdbRating: Bool? = nil,
-                minImdbVoteCount: Bool? = nil,
-                maxImdbVoteCount: Bool? = nil,
+                minImdbRating: Int? = nil,
+                maxImdbRating: Int? = nil,
+                minImdbVoteCount: Int? = nil,
+                maxImdbVoteCount: Int? = nil,
                 keyword: String? = nil) {
         self.country = country
         self.service = service
