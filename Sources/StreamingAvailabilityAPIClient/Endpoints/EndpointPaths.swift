@@ -10,6 +10,7 @@ import Foundation
 enum EndpointPath: String {
     case basicSearch = "/search/basic"
     case proSearch = "/search/pro"
+    case ultraSearch = "/search/ultra"
 
     var path: String { rawValue }
 }

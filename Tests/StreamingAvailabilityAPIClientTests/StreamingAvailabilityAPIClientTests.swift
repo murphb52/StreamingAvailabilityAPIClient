@@ -60,6 +60,30 @@ final class StreamingAvailabilityAPIClientTests: XCTestCase {
         }
     }
 
+    func testUltraMovieSearch() throws {
+        try JSONStubManager.setupStub(.ultraMovieSearch)
+
+        let parameters = UltraMovieSearchParameters(country: "en",
+                                                    service: .disney,
+                                                    orderBy: .imdbRating)
+        let publisher = sut.ultraMovieSearchRequest(parameters)
+        assert(publisher: publisher) { response in
+            XCTAssertEqual(response.results.count, 8)
+        }
+    }
+
+    func testUltraTVSeriesSearch() throws {
+        try JSONStubManager.setupStub(.ultraTVSeriesSearch)
+
+        let parameters = UltraTVSeriesSearchParameters(country: "en",
+                                                       service: .disney,
+                                                       orderBy: .imdbRating)
+        let publisher = sut.ultraTVSeriesSearchRequest(parameters)
+        assert(publisher: publisher) { response in
+            XCTAssertEqual(response.results.count, 8)
+        }
+    }
+
 //    func testProSearch() throws {
 //        try JSONStubManager.setupStub(.proSearch)
 //
