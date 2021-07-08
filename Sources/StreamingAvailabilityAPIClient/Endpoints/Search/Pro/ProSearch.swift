@@ -7,14 +7,20 @@
 
 import Foundation
 
+public enum ProSearchOrder: String, Codable {
+    case originalTitle = "original_title"
+    case year
+}
+
 protocol ProSearch: RequestParameter {
     var type: ContentType { get }
     var country: CountryCode { get }
     var service: StreamingService { get }
+    var orderBy: ProSearchOrder { get }
+
     var genre: GenreIdentifier? { get }
     var page: Int? { get }
     var language: String? { get }
-    var orderBy: SearchOrder { get }
     var yearMin: Int? { get }
     var yearMax: Int? { get }
     var desc: Bool? { get }

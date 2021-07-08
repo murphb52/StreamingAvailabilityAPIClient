@@ -1,5 +1,5 @@
 //
-//  ProMovieSearchParameters.swift
+//  ProTVSeriesSearchParameters.swift
 //  
 //
 //  Created by Brian Murphy on 05/06/2021.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct ProMovieSearchParameters: ProSearch {
-    public private(set) var type: ContentType = .movie
+public struct ProTVSeriesSearchParameters: ProSearch {
+    public private(set) var type: ContentType = .series
 
     public let country: CountryCode
     public let service: StreamingService
-    public let orderBy: SearchOrder
+    public let orderBy: ProSearchOrder
     public let genre: GenreIdentifier?
     public let page: Int?
     public let language: String?
@@ -23,7 +23,7 @@ public struct ProMovieSearchParameters: ProSearch {
 
     public init(country: CountryCode,
                   service: StreamingService,
-                  orderBy: SearchOrder,
+                  orderBy: ProSearchOrder,
                   genre: GenreIdentifier? = nil,
                   page: Int? = nil,
                   language: String? = nil,

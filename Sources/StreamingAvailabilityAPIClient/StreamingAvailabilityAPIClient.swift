@@ -59,4 +59,20 @@ public class StreamingAvailabilityAPIClient: StreamingAvailabilityAPI {
                                 queryItems: parameters.toQueryItems(),
                                 headers: headers))
     }
+
+    public func ultraMovieSearchRequest(
+        _ parameters: UltraMovieSearchParameters
+    ) -> AnyPublisher<APIResponse<[Movie]>, Error> {
+        .publisher(for: .create(path: .ultraSearch,
+                                queryItems: parameters.toQueryItems(),
+                                headers: headers))
+    }
+
+    public func ultraTVSeriesSearchRequest(
+        _ parameters: UltraTVSeriesSearchParameters
+    ) -> AnyPublisher<APIResponse<[TVSeries]>, Error> {
+        .publisher(for: .create(path: .ultraSearch,
+                                queryItems: parameters.toQueryItems(),
+                                headers: headers))
+    }
 }
